@@ -9,7 +9,8 @@ class UserJsonEncoder(json.JSONEncoder):
             to_serialize = {
                 "id": str(o.id),
                 "username": o.username,
-                "password": o.password
+                "password": o.password,
+                "role": o.role.value
             }
             print('serializer return type', type(to_serialize))
             return to_serialize
