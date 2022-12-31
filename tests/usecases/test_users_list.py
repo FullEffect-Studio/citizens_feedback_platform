@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, Mock
 import pytest
 
 from app.domain.user import User, UserRole
-from app.requests.user_list import UserListRequest
+from app.requests.user_list import  build_user_list_request
 from app.usecases.user_list import user_list_usecase
 
 
@@ -45,7 +45,7 @@ def test_room_list_without_parameters(domain_users):
     repo = Mock()
     repo.list.return_value = domain_users
 
-    request = UserListRequest()
+    request = build_user_list_request()
 
     response = user_list_usecase(repo, request)
 
