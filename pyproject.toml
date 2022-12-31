@@ -1,0 +1,8 @@
+name = "citizens_feedback_platform"
+version = "1.0.0"
+authors = ["Bernard White Danquah <danquahwhite@gmail.com>"]
+
+[tool.black]
+line-length = 75
+target-version = ['py310']
+
