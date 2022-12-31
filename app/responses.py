@@ -51,3 +51,4 @@ def build_response_from_invalid_request(invalid_request):
         ]
     )
     return ResponseFailure(ResponseTypes.PARAMETERS_ERROR, message)
+
