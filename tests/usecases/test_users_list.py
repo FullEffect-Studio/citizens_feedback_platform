@@ -1,9 +1,10 @@
 from uuid import uuid4
-from unittest import mock
+from unittest.mock import MagicMock, Mock
 
 import pytest
 
 from app.domain.user import User
+from app.usecases.users_list import users_list_usecase
 
 
 @pytest.fixture
@@ -36,10 +37,11 @@ def domain_users():
 
 
 def test_room_list_without_parameters(domain_users):
-    repo = mock.Mock()
-    repo.list.returnValue = domain_users
+    repo = Mock()
+    repo.list.return_value = domain_users
 
     result = users_list_usecase(repo)
 
     repo.list.assert_called_with()
+
     assert result == domain_users

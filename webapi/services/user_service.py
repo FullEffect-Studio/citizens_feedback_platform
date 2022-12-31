@@ -1,5 +1,5 @@
 # services/user_service.py
-from models.user import User
+from webapi.models.user import User
 
 
 class UserService:
