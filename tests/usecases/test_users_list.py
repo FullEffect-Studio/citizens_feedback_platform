@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, Mock
 
 import pytest
 
-from app.domain.user import User
+from app.domain.user import User, UserRole
 from app.requests.user_list import UserListRequest
 from app.usecases.user_list import user_list_usecase
 
@@ -13,25 +13,29 @@ def domain_users():
     user_1 = User(
         id=uuid4(),
         username="Danquah",
-        password="pass111"
+        password="pass111",
+        role=UserRole.COMMUNITY_SOCIAL_WORKER
     )
 
     user_2 = User(
         id=uuid4(),
         username="Fahrid",
-        password="pass222"
+        password="pass222",
+        role=UserRole.PUBLIC_OFFICIAL
     )
 
     user_3 = User(
         id=uuid4(),
         username="Yau",
-        password="pass333"
+        password="pass333",
+        role=UserRole.PUBLIC_OFFICIAL
     )
 
     user_4 = User(
         id=uuid4(),
         username="Lowe",
-        password="pass444"
+        password="pass444",
+        role=UserRole.ADMIN
     )
 
     return [user_1, user_2, user_3, user_4]

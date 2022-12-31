@@ -3,7 +3,7 @@ from dataclasses import dataclass, asdict
 from enum import Enum
 
 
-class UserRole(Enum):
+class UserRole:
     COMMUNITY_SOCIAL_WORKER = 'Social Worker'
     PUBLIC_OFFICIAL = 'Public Official'
     ADMIN = 'Administrator'
@@ -14,7 +14,7 @@ class User:
     id: uuid.UUID
     username: str
     password: str
-    role: UserRole
+    role: str
 
     @classmethod
     def from_dict(cls, data):

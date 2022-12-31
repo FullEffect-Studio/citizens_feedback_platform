@@ -35,6 +35,7 @@ def test_user_model_from_dict():
 
     print(user.role)
 
+
 def test_user_model_to_dict():
     dict_data = {
         "id": uuid4(),

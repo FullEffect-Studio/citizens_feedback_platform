@@ -20,7 +20,7 @@ def test_serialize_domain_user():
             "id": "{code}",
             "username": "Ben",
             "password": "qwe123!",
-            "role": "{UserRole.COMMUNITY_SOCIAL_WORKER.value}"
+            "role": "{UserRole.COMMUNITY_SOCIAL_WORKER}"
         }}
     """
 
