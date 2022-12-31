@@ -1,6 +1,6 @@
 # repositories/user_repository.py
-from webapi.models.user import User
-from webapi.repositories.db_context import MongoDbContext
+from web.models.user import User
+from web.repositories.db_context import MongoDbContext
 
 
 class UserRepository(MongoDbContext):

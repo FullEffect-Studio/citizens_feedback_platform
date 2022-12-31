@@ -4,7 +4,7 @@ from unittest.mock import MagicMock, Mock
 import pytest
 
 from app.domain.user import User
-from app.usecases.users_list import users_list_usecase
+from app.usecases.user_list import user_list_usecase
 
 
 @pytest.fixture
@@ -40,7 +40,7 @@ def test_room_list_without_parameters(domain_users):
     repo = Mock()
     repo.list.return_value = domain_users
 
-    result = users_list_usecase(repo)
+    result = user_list_usecase(repo)
 
     repo.list.assert_called_with()
 

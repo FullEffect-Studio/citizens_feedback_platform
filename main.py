@@ -2,10 +2,10 @@
 from flask import Flask, request, jsonify
 from pydantic import ValidationError
 
-from webapi.controllers.user_controller import UserController
-from webapi.adaptors.add_user_dto import AddUserDto
-from webapi.repositories.user_repository import UserRepository
-from webapi.services.user_service import UserService
+from web.controllers.user_controller import UserController
+from web.adaptors.add_user_dto import AddUserDto
+from web.repositories.user_repository import UserRepository
+from web.services.user_service import UserService
 
 app = Flask(__name__)
 

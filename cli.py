@@ -1,5 +1,5 @@
 from app.repository.memrepo import MemRepo
-from app.usecases.users_list import users_list_usecase
+from app.usecases.user_list import user_list_usecase
 
 data_source = [
         {
@@ -25,7 +25,7 @@ data_source = [
         },
     ]
 repo = MemRepo(data_source)
-result = users_list_usecase(repo)
+result = user_list_usecase(repo)
 
 print([user.to_dict() for user in result])
 

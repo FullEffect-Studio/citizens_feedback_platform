@@ -2,10 +2,10 @@ version: '3'
 
 services:
   web:
-    build: webapi/web
+    build: web/web
     ports:
       - "5000:5000"
     links:
       - db
   db:
-    build: webapi/db
+    build: web/db
