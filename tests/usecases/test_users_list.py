@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, Mock
 import pytest
 
 from app.domain.user import User
+from app.requests.user_list import UserListRequest
 from app.usecases.user_list import user_list_usecase
 
 
@@ -40,8 +41,12 @@ def test_room_list_without_parameters(domain_users):
     repo = Mock()
     repo.list.return_value = domain_users
 
-    result = user_list_usecase(repo)
+    request = UserListRequest()
+
+    response = user_list_usecase(repo, request)
+
+    assert bool(response) is True
 
     repo.list.assert_called_with()
 
-    assert result == domain_users
+    assert response.value == domain_users
