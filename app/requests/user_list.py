@@ -32,7 +32,7 @@ def build_user_list_request(filters=None):
             invalid_req.add_error("filters", "Is not iterable")
             return invalid_req
 
-        for key,value in filters.items():
+        for key, value in filters.items():
             if key not in accepted_filters:
                 invalid_req.add_error("filters", "Key {} cannot be used".format(key))
 

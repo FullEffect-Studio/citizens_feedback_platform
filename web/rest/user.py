@@ -48,21 +48,9 @@ users = [
 
 @blueprint.route("/users", methods=["GET"])
 def user_list():
-    request_object = {
-        "filters": {}
-    }
-    querystring_params = {
-        "filters": {}
-    }
-
-    for arg, values in request.args.items():
-        if arg.startswith('filter_'):
-            querystring_params['filters'][arg.replace('filter_', '')] = values
-
-        request_object = build_user_list_request(filters=querystring_params['filters'])
 
     repo = MemRepo(users)
-    result = user_list_usecase(repo, request_object)
+    result = user_list_usecase(repo,)
 
     return Response(
         json.dumps(result.value, cls=UserJsonEncoder),

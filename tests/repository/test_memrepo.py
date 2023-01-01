@@ -41,3 +41,5 @@ def test_repository_list_users_without_parameters(users_dicts):
     users = [User.from_dict(i) for i in users_dicts]
 
     assert repo.list() == users
+
+
