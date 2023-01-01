@@ -1,4 +1,3 @@
-from app.requests.user_list import UserListInvalidRequest
 from app.responses import ResponseSuccess, build_response_from_invalid_request, ResponseTypes, ResponseFailure
 
 SUCCESS_VALUE = {"key": ["value1", "value2"]}
@@ -44,22 +43,5 @@ def test_response_failure_initialization_with_exception():
     assert response.message == 'Exception: Just an error message'
 
 
-def test_response_failure_from_empty_invalid_request():
-    response = build_response_from_invalid_request(
-        UserListInvalidRequest()
-    )
-
-    assert bool(response) is False
-    assert response.type == ResponseTypes.PARAMETERS_ERROR
 
 
-def test_response_failure_from_invalid_request_with_errors():
-    request = UserListInvalidRequest()
-    request.add_error('path', 'is mandatory')
-    request.add_error('path', 'cannot be blank')
-
-    response = build_response_from_invalid_request(request)
-
-    assert bool(response) is False
-    assert response.type == ResponseTypes.PARAMETERS_ERROR
-    assert response.message == "path: is mandatory\npath: cannot be blank"

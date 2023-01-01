@@ -2,7 +2,7 @@ import json
 from unittest import mock
 import pytest
 
-from app.domain.user import  UserRole
+from app.domain.user import UserRole
 from app.dtos.user_list_dto import UserListDto
 from app.responses import ResponseSuccess, ResponseTypes, ResponseFailure
 
@@ -27,8 +27,6 @@ def test_get(mock_usecase, client):
 
     assert http_response.status_code == 200
     assert http_response.mimetype == 'application/json'
-
-
 
 
 @pytest.mark.parametrize(

@@ -3,7 +3,6 @@ import json
 from flask import Blueprint, Response, request
 
 from app.repository.memrepo import MemRepo
-from app.requests.user_list import build_user_list_request
 from app.responses import ResponseTypes
 from app.serializers.user import UserJsonEncoder
 from app.usecases.user_list import user_list_usecase

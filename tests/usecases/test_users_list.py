@@ -5,8 +5,6 @@ import pytest
 
 from app.domain.user import User, UserRole
 from app.dtos.user_list_dto import UserListDto
-from app.requests.user_list import build_user_list_request
-from app.responses import ResponseTypes
 from app.usecases.user_list import user_list_usecase
 
 
