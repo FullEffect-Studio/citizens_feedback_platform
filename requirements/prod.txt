@@ -1,0 +1,9 @@
+Flask
+Flask-RESTful
+pydantic
+pymongo
+gunicorn
+pyjwt
+flask_jwt_extended
+marshmallow
+Flask-Injector

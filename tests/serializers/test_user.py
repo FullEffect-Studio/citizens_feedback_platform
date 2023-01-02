@@ -1,9 +1,8 @@
 import json
 from uuid import uuid4
 
-from app.domain.user import User, UserRole
-from app.serializers.user import UserJsonEncoder
-from pprint import pprint as pp
+from domain.user import User, UserRole
+from domain.serializers.user import UserJsonEncoder
 
 
 def test_serialize_domain_user():

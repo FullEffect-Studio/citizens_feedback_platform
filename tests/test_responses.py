@@ -1,4 +1,4 @@
-from app.responses import ResponseSuccess, build_response_from_invalid_request, ResponseTypes, ResponseFailure
+from application.responses import ResponseSuccess, build_response_from_invalid_request, ResponseTypes, ResponseFailure
 
 SUCCESS_VALUE = {"key": ["value1", "value2"]}
 GENERIC_RESPONSE_TYPE = "Response"

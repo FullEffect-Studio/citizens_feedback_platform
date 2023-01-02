@@ -1,6 +1,6 @@
-from app.domain.user import UserRole
-from app.repository.memrepo import MemRepo
-from app.usecases.user_list import user_list_usecase
+from domain.user import UserRole
+from data.repository.memrepo import MemRepo
+from domain.usecases.user_list import user_list_usecase
 from pprint import pprint as pp
 data_source = [
     {

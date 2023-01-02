@@ -2,9 +2,9 @@ import json
 from unittest import mock
 import pytest
 
-from app.domain.user import UserRole
-from app.dtos.user_list_dto import UserListDto
-from app.responses import ResponseSuccess, ResponseTypes, ResponseFailure
+from domain.user import UserRole
+from application.dtos.user_list_dto import UserListDto
+from application.responses import ResponseSuccess, ResponseTypes, ResponseFailure
 
 user_in_list_dict = {
     "id": "3251a5bd-86be-428d-8ae9-6e51a8048c33",

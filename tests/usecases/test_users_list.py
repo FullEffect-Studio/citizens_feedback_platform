@@ -1,11 +1,10 @@
-from uuid import uuid4
-from unittest.mock import MagicMock, Mock
+from unittest.mock import Mock
 
 import pytest
 
-from app.domain.user import User, UserRole
-from app.dtos.user_list_dto import UserListDto
-from app.usecases.user_list import user_list_usecase
+from domain.user import UserRole
+from application.dtos.user_list_dto import UserListDto
+from domain.usecases.user_list import user_list_usecase
 
 
 @pytest.fixture

@@ -1,6 +1,6 @@
 from uuid import uuid4
 
-from app.domain.user import User, UserRole
+from domain.user import User, UserRole
 
 
 def test_user_model_init():

@@ -5,7 +5,7 @@ wheel
 watchdog
 flake8
 Sphinx
-Flask
-Flask-RESTful
-pydantic
-pymongo
+# Flask
+# Flask-RESTful
+# pydantic
+# pymongo
