@@ -1,11 +1,11 @@
-from application.dtos.user_list_dto import UserListDto
+from application.dtos.user_list_dto import UserInListDto
 from application.responses import ResponseSuccess, ResponseTypes, ResponseFailure
 
 
 def user_list_usecase(repo):
     try:
         users = repo.list()
-        result = [UserListDto(id=user.id, username=user.username, role=user.role).dict() for user in users]
+        result = [UserInListDto(id=user.id, username=user.username, role=user.role).dict() for user in users]
         return ResponseSuccess(result)
     except Exception as e:
         print(e)

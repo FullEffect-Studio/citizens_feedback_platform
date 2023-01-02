@@ -9,3 +9,6 @@ class BaseRepository:
     def __init__(self, client: AppMongoClient):
         self.client = client.client
         self.db = self.client.get_default_database()
+
+
+

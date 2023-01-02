@@ -3,31 +3,31 @@ from unittest.mock import Mock
 import pytest
 
 from domain.user import UserRole
-from application.dtos.user_list_dto import UserListDto
+from application.dtos.user_list_dto import UserInListDto
 from domain.usecases.user_list import user_list_usecase
 
 
 @pytest.fixture
 def dto_user_list():
-    user_1 = UserListDto(
+    user_1 = UserInListDto(
         id="f853578c-fc0f-4e65-81b8-566c5dffa35a",
         username="Danquah",
         role=UserRole.COMMUNITY_SOCIAL_WORKER
     )
 
-    user_2 = UserListDto(
+    user_2 = UserInListDto(
         id="fe2c3195-aeff-487a-a08f-e0bdc0ec6e9a",
         username="Fahrid",
         role=UserRole.PUBLIC_OFFICIAL
     )
 
-    user_3 = UserListDto(
+    user_3 = UserInListDto(
         id="913694c6-435a-4366-ba0d-da5334a611b2",
         username="Yau",
         role=UserRole.PUBLIC_OFFICIAL
     )
 
-    user_4 = UserListDto(
+    user_4 = UserInListDto(
         id="913694c6-435a-4366-ba0d-da5334a611b2",
         username="Lowe",
         role=UserRole.ADMIN

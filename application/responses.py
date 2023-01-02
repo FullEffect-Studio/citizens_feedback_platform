@@ -1,3 +1,7 @@
+
+
+
+
 class ResponseTypes:
     """
     The error types contained in the ResponseTypes class are very similar to HTTP errors. This similarity will be

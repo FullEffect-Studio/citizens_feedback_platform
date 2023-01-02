@@ -2,11 +2,14 @@ from dataclasses import dataclass
 from uuid import uuid4
 
 from injector import inject
+from pymongo.errors import DuplicateKeyError
+from werkzeug.security import generate_password_hash
 
-from application.responses import ResponseFailure, ResponseTypes, ResponseSuccess
+from application.responses import ResponseSuccess
 from data.repository.users_repository import UsersRepository
+from domain.exceptions.invalid_user_input_exception import HttpException
 from domain.user import User
-from web.controllers.add_user_dto import AddUserDto
+from application.dtos.add_user_dto import AddUserDto
 
 
 @dataclass
@@ -16,21 +19,23 @@ class AddUserCommand:
     @inject
     def execute(self, user_repo: UsersRepository):
 
-        # generate a random password and Hash it
+        # check if username exist
+        user_name_exist = user_repo.check_if_username_exist(self.payload.username)
+        if user_name_exist is True:
+            raise HttpException(message='Specified username already exist', status_code=400)
+
+        hashed_password = generate_password_hash(self.payload.password)
 
         user = User(
             id=uuid4(),
             username=self.payload.username,
             role=self.payload.role,
-            password=self.payload.password
+            password=hashed_password
         )
 
         try:
-            user = user_repo.add(domain_user=user)
-        except Exception as e:
-            print('An error occurred saving user', e)
-            return ResponseFailure(ResponseTypes.SYSTEM_ERROR, e)
-
-        print('save user in db result', user)
-        return ResponseSuccess()
-
+            user_repo.add(domain_user=user)
+            return ResponseSuccess()
+        except DuplicateKeyError as e:
+            print('An error occurred saving user: ', e)
+            raise ValueError('Duplicate Ids are not allowed')

@@ -3,7 +3,7 @@ from unittest import mock
 import pytest
 
 from domain.user import UserRole
-from application.dtos.user_list_dto import UserListDto
+from application.dtos.user_list_dto import UserInListDto
 from application.responses import ResponseSuccess, ResponseTypes, ResponseFailure
 
 user_in_list_dict = {
@@ -12,7 +12,7 @@ user_in_list_dict = {
     "role": UserRole.ADMIN
 }
 
-users = [UserListDto(**user_in_list_dict).dict()]
+users = [UserInListDto(**user_in_list_dict).dict()]
 
 
 @mock.patch("web.rest.user.user_list_usecase")

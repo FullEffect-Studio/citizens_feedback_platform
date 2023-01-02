@@ -45,7 +45,7 @@ def test_user_model_to_dict():
     }
 
     user = User.from_dict(dict_data)
-    assert user.to_dict() == dict_data
+    assert user.dict() == dict_data
 
 
 def test_user_comparison():

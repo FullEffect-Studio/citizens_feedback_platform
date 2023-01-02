@@ -1,36 +1,27 @@
+import json
+
 from flask import Blueprint, Response, request
 from marshmallow import fields, Schema, ValidationError
 
-from application.dtos.login_dto import LoginDto
+from application.dtos.login_credentials_dto import LoginCredentialsDtoSchema, LoginCredentialsDto
+from application.users.commands.login_user_command import LoginUserCommand
 from data.repository.users_repository import UsersRepository
+from domain.exceptions.invalid_user_input_exception import HttpException
 
 blueprint = Blueprint('auth', __name__)
 
 
-class LoginDtoSchema(Schema):
-    username = fields.Str()
-    password = fields.Str()
-
-
 @blueprint.route("/auth/login", methods=["POST"])
 def login(user_repo: UsersRepository):
-    schema = LoginDtoSchema()
+    schema = LoginCredentialsDtoSchema()
 
     try:
         data = schema.load(request.get_json())
-        print('validation results', data, type(request.get_json()))
-        payload = LoginDto(**data)
-        print(payload)
-        return Response(schema.dumps(data))
+        command = LoginUserCommand(payload=data)
+        response = command.execute(user_repo)
+        print(response)
+        return Response(json.dumps(response), mimetype='application/json', status=201)
     except ValidationError as e:
-        print(e)
-        return Response(e.messages)
+        print(e.messages)
+        raise HttpException(message=e.messages, status_code=400)
 
-    # repo = MongoRepo(uri=current_app.config['MONGODB_URL'], db_name='')
-    # result = user_list_usecase(repo)
-
-    # return Response(
-    #     json.dumps(payload.dict(), cls=UserJsonEncoder),
-    #     mimetype='application/json',
-    #     status=201
-    # )
