@@ -6,7 +6,7 @@ from injector import inject
 from marshmallow import ValidationError
 
 from application.users.commands.add_user_command import AddUserCommand
-from data.repository.users_repository import UsersRepository
+from data.users.users_repository import UsersRepository
 from domain.exceptions.invalid_user_input_exception import HttpException
 from domain.serializers.user import UserJsonEncoder
 from domain.usecases.user_list import user_list_usecase

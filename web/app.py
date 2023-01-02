@@ -1,13 +1,13 @@
-import errorhandler as errorhandler
 import pymongo
 from flask import Flask, make_response, jsonify
 from flask_injector import FlaskInjector
 from flask_jwt_extended import JWTManager
-from injector import provider, Module, singleton, Injector, inject, Binder
+from injector import Module, singleton, inject, Binder
 from marshmallow import ValidationError
+from mongoengine import connect
 
 from application.command_bus import CommandBus
-from data.repository.mongo_client import AppMongoClient
+from data.mongo_client import AppMongoClient
 from domain.exceptions.invalid_user_input_exception import HttpException
 from web.db_seeder import db_seeder
 from web.controllers import user_controller, auth_controller
@@ -59,6 +59,9 @@ def create_app(config_name):
     print('Connecting db: ', app.config['MONGODB_URL'])
     print('JWT_SECRET_KEY: ', app.config['JWT_SECRET_KEY'])
     db_seeder(app.config['MONGODB_URL'])
+
+    # Connecting mongo-engine
+    connect(host=app.config['MONGODB_URL'])
 
     FlaskInjector(app=app, modules=[MongoModule(app=app)])
 

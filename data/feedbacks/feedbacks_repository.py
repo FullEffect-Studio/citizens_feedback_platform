@@ -1,4 +1,4 @@
-from data.repository.mongo_base import BaseRepository, AppMongoClient
+from data.mongo_base import BaseRepository, AppMongoClient
 
 
 class FeedBacksRepository(BaseRepository):

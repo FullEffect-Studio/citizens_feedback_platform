@@ -1,7 +1,6 @@
-import pymongo
-from injector import singleton, inject
+from injector import inject
 
-from data.repository.mongo_client import AppMongoClient
+from data.mongo_client import AppMongoClient
 
 
 class BaseRepository:

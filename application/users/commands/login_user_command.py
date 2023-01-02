@@ -1,16 +1,12 @@
 from dataclasses import dataclass
-from uuid import uuid4
 
 from flask_jwt_extended import create_access_token, create_refresh_token
 from injector import inject
-from pymongo.errors import DuplicateKeyError
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import check_password_hash
 
 from application.dtos.user_list_dto import UserInListDto
-from application.responses import ResponseSuccess, ResponseFailure, ResponseTypes
-from data.repository.users_repository import UsersRepository
+from data.users.users_repository import UsersRepository
 from domain.exceptions.invalid_user_input_exception import HttpException
-from domain.user import User
 from application.dtos.login_credentials_dto import LoginCredentialsDto
 
 

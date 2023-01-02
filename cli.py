@@ -1,5 +1,5 @@
 from domain.user import UserRole
-from data.repository.memrepo import MemRepo
+from data.memrepo import MemRepo
 from domain.usecases.user_list import user_list_usecase
 from pprint import pprint as pp
 data_source = [

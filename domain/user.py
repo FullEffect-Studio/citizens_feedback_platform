@@ -16,6 +16,15 @@ class User:
     password: str
     role: str
 
+    def is_admin(self) -> bool:
+        return self.role == UserRole.ADMIN
+
+    def is_public_official(self) -> bool:
+        return self.role == UserRole.PUBLIC_OFFICIAL
+
+    def is_social_worker(self) -> bool:
+        return self.role == UserRole.COMMUNITY_SOCIAL_WORKER
+
     @classmethod
     def from_dict(cls, data):
         return cls(**data)

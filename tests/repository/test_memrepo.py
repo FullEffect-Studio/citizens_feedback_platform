@@ -1,7 +1,7 @@
 import pytest
 
 from domain.user import User, UserRole
-from data.repository.memrepo import MemRepo
+from data.memrepo import MemRepo
 
 
 @pytest.fixture

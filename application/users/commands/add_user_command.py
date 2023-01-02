@@ -6,7 +6,7 @@ from pymongo.errors import DuplicateKeyError
 from werkzeug.security import generate_password_hash
 
 from application.responses import ResponseSuccess
-from data.repository.users_repository import UsersRepository
+from data.users.users_repository import UsersRepository
 from domain.exceptions.invalid_user_input_exception import HttpException
 from domain.user import User
 from application.dtos.add_user_dto import AddUserDto
@@ -21,6 +21,7 @@ class AddUserCommand:
 
         # check if username exist
         user_name_exist = user_repo.check_if_username_exist(self.payload.username)
+        print('username check results', user_name_exist)
         if user_name_exist is True:
             raise HttpException(message='Specified username already exist', status_code=400)
 
@@ -35,7 +36,7 @@ class AddUserCommand:
 
         try:
             user_repo.add(domain_user=user)
-            return ResponseSuccess()
+            return ResponseSuccess(user.__dict__)
         except DuplicateKeyError as e:
             print('An error occurred saving user: ', e)
             raise ValueError('Duplicate Ids are not allowed')
