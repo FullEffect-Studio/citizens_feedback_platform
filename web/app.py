@@ -10,7 +10,7 @@ from application.command_bus import CommandBus
 from data.mongo_client import AppMongoClient
 from domain.exceptions.invalid_user_input_exception import HttpException
 from web.db_seeder import db_seeder
-from web.controllers import user_controller, auth_controller
+from web.controllers import user_controller, auth_controller, feedback_controller
 
 
 class MongoModule(Module):
@@ -85,4 +85,5 @@ def create_app(config_name):
 def configure_blueprints(app):
     app.register_blueprint(user_controller.blueprint)
     app.register_blueprint(auth_controller.blueprint)
+    app.register_blueprint(feedback_controller.blueprint)
 
