@@ -1,13 +1,10 @@
 from dataclasses import dataclass
-from uuid import uuid4
 
 from injector import inject
 
-from application.dtos.save_feedback_dto import SaveFeedbackDto
 from application.responses import ResponseSuccess
 from data.statistics.statistics_repository import StatisticsRepository
-from domain.exceptions.invalid_user_input_exception import HttpException
-from domain.statistic import Statistic
+from domain.exceptions import HttpException
 
 
 @dataclass

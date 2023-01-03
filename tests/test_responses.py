@@ -1,4 +1,4 @@
-from application.responses import ResponseSuccess, build_response_from_invalid_request, ResponseTypes, ResponseFailure
+from application.responses import ResponseSuccess, ResponseTypes, ResponseFailure
 
 SUCCESS_VALUE = {"key": ["value1", "value2"]}
 GENERIC_RESPONSE_TYPE = "Response"
@@ -37,6 +37,7 @@ def test_response_failure_initialization_with_exception():
         GENERIC_RESPONSE_TYPE,
         Exception('Just an error message')
     )
+
 
     assert bool(response) is False
     assert response.type == GENERIC_RESPONSE_TYPE

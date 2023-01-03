@@ -6,7 +6,7 @@ from injector import inject
 from application.dtos.save_feedback_dto import SaveFeedbackDto
 from application.responses import ResponseSuccess
 from data.statistics.statistics_repository import StatisticsRepository
-from domain.exceptions.invalid_user_input_exception import HttpException
+from domain.exceptions import HttpException
 from domain.statistic import Statistic
 
 
@@ -55,6 +55,7 @@ class ProcessFeedbackCommand:
                 user_stat.family += family
                 user_stat.health += health
                 user_stat.unknown += unknown
+                user_stat.community_size = self.payload.community_size
                 stats_repo.update_stats(user_stat)
 
             return ResponseSuccess()

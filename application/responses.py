@@ -1,19 +1,5 @@
 
-
-
-
 class ResponseTypes:
-    """
-    The error types contained in the ResponseTypes class are very similar to HTTP errors. This similarity will be
-    useful when we return responses from the web framework.
-
-    PARAMETERS_ERROR signals that something was wrong in the input parameters passed by the request.
-
-    RESOURCE_ERROR signals that the process ended correctly, but the requested resource isn’t available. Lastly,
-
-    SYSTEM_ERROR signals that something went wrong with the process itself. These are used mostly to signal an
-    exception in the Python code.
-    """
     PARAMETERS_ERROR = 'ParametersError'
     RESOURCE_ERROR = 'ResourceError'
     SYSTEM_ERROR = 'SystemError',
@@ -55,4 +41,3 @@ def build_response_from_invalid_request(invalid_request):
         ]
     )
     return ResponseFailure(ResponseTypes.PARAMETERS_ERROR, message)
-

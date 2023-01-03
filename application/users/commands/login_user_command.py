@@ -7,7 +7,7 @@ from werkzeug.security import check_password_hash
 
 from application.dtos.user_list_dto import UserInListDto
 from data.users.users_repository import UsersRepository
-from domain.exceptions.invalid_user_input_exception import HttpException
+from domain.exceptions import HttpException
 from application.dtos.login_credentials_dto import LoginCredentialsDto
 
 
