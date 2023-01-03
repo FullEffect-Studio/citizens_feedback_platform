@@ -4,7 +4,7 @@ from application.responses import ResponseSuccess, ResponseTypes, ResponseFailur
 
 def user_list_usecase(repo):
     try:
-        users = repo.list()
+        users = repo.get_all()
         result = [UserInListDto(id=user.id, username=user.username, role=user.role).dict() for user in users]
         return ResponseSuccess(result)
     except Exception as e:

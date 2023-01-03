@@ -10,7 +10,9 @@ from marshmallow import ValidationError
 from application.dtos.login_credentials_dto import LoginCredentialsDtoSchema
 from application.dtos.save_feedback_dto import SaveFeedbackDto
 from application.dtos.user_list_dto import UserInListDto
-from application.feedbacks.commands.save_feedback_command import SaveFeedbackCommand
+from application.feedbacks.commands.process_feedback_command import ProcessFeedbackCommand
+from application.feedbacks.queries.get_all_stats_query import GetAllStatsQuery
+from application.feedbacks.queries.get_stats_by_social_worker_query import GetStatBySocialWorkerQuery
 from application.users.commands.login_user_command import LoginUserCommand
 from data.statistics.statistics_repository import StatisticsRepository
 from data.users.users_repository import UsersRepository
@@ -18,6 +20,29 @@ from domain.exceptions.invalid_user_input_exception import HttpException
 from domain.user import UserRole
 
 blueprint = Blueprint('feedback', __name__)
+
+
+@blueprint.route("/feedbacks/stats", methods=["Get"])
+@jwt_required()
+def get_stats(stats_repo: StatisticsRepository):
+    current_user = get_jwt_identity()
+
+    if current_user['role'] == UserRole.COMMUNITY_SOCIAL_WORKER:
+        query = GetStatBySocialWorkerQuery(current_user_id=current_user['id'])
+        result = query.execute(stats_repo=stats_repo)
+        return Response(
+            response=json.dumps(result.value),
+            mimetype='application/json',
+            status=200
+        )
+    else:
+        query = GetAllStatsQuery()
+        result = query.execute(stats_repo=stats_repo)
+        return Response(
+            response=json.dumps(result.value),
+            mimetype='application/json',
+            status=200
+        )
 
 
 @blueprint.route("/feedbacks/upload", methods=["POST"])
@@ -74,13 +99,13 @@ def upload_feedback(stats_repo: StatisticsRepository):
 
     # Validate the community size
     try:
-        int(community_size)
+        community_size = int(community_size)
     except ValueError:
         raise HttpException('Community size must be an integer', 404)
 
     payload = SaveFeedbackDto(feedback=feedback_data[1:], community_name=community_name, community_size=community_size)
 
-    command = SaveFeedbackCommand(payload=payload, current_user_id=current_user['id'])
+    command = ProcessFeedbackCommand(payload=payload, current_user_id=current_user['id'])
     command.execute(stats_repo=stats_repo)
 
     return [feedback_data[1:], community_name, community_size]  # return redirect(url_for("upload_feedback"))

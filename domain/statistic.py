@@ -6,6 +6,8 @@ from enum import Enum
 @dataclass
 class Statistic:
     id: uuid.UUID
+    community_name: str
+    community_size: int
     social_worker_id: str
     family: int
     health: int

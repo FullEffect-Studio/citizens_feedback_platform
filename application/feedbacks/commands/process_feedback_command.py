@@ -11,17 +11,20 @@ from domain.statistic import Statistic
 
 
 @dataclass
-class SaveFeedbackCommand:
+class ProcessFeedbackCommand:
     payload: SaveFeedbackDto
     current_user_id: str
 
     @inject
     def execute(self, stats_repo: StatisticsRepository):
-        user_stat = stats_repo.get_stats_by_social_worker(self.current_user_id)
+        user_stat = stats_repo.get_stats_by_community_and_social_worker(
+            self.payload.community_name,
+            self.current_user_id
+        )
+
         family = 0
         health = 0
         unknown = 0
-
 
         for feed in self.payload.feedback:
             concern = feed[0]
@@ -36,8 +39,11 @@ class SaveFeedbackCommand:
 
         try:
             if user_stat is None:
+                print('adding new')
                 model = Statistic(
                     id=uuid4(),
+                    community_name=str(self.payload.community_name).strip(),
+                    community_size=int(self.payload.community_size),
                     social_worker_id=self.current_user_id,
                     family=family,
                     health=health,
@@ -45,6 +51,7 @@ class SaveFeedbackCommand:
                 )
                 stats_repo.add_stats(model)
             else:
+                print('updating exisitng')
                 user_stat.family += family
                 user_stat.health += health
                 user_stat.unknown += unknown
