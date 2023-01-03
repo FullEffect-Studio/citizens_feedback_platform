@@ -8,6 +8,7 @@ class Config(object):
     TESTING = False
     MONGODB_URL = None
     JWT_SECRET_KEY = os.environ.get('JWT_SECRET', 'secret')
+    FILE_UPLOADS = os.curdir
 
 
 class ProductionConfig(Config):

@@ -8,6 +8,8 @@ from mongoengine import connect
 
 from application.command_bus import CommandBus
 from data.mongo_client import AppMongoClient
+from data.statistics.statistics_repository import StatisticsRepository
+from data.users.users_repository import UsersRepository
 from domain.exceptions.invalid_user_input_exception import HttpException
 from web.db_seeder import db_seeder
 from web.controllers import user_controller, auth_controller, feedback_controller
@@ -22,13 +24,16 @@ class MongoModule(Module):
     def configure(self, binder):
         mongo_url = self.app.config['MONGODB_URL'],
         mongo_client = pymongo.MongoClient(mongo_url)
+        app_mongo_client = AppMongoClient(client=mongo_client)
 
         binder.bind(
             pymongo.MongoClient,
             mongo_client,
             scope=singleton)
 
-        binder.bind(AppMongoClient, AppMongoClient(client=mongo_client))
+        binder.bind(AppMongoClient, app_mongo_client)
+        binder.bind(UsersRepository, UsersRepository(client=app_mongo_client))
+        binder.bind(StatisticsRepository, StatisticsRepository(client=app_mongo_client))
 
 
 class CqrsModule(Module):
@@ -38,18 +43,8 @@ class CqrsModule(Module):
         binder.bind(CommandBus, CommandBus())
 
 
-
-class CFPFlask(Flask):
-    def make_response(self, rv):
-        if isinstance(rv, dict):
-            return make_response(jsonify({'result': rv}), 200)
-        if isinstance(rv, tuple) and len(rv) == 2 and isinstance(rv[0], dict) and isinstance(rv[1], int):
-            return make_response(jsonify(rv[0]), rv[1])
-        return Flask.make_response(self, rv)
-
-
 def create_app(config_name):
-    app = CFPFlask(__name__)
+    app = Flask(__name__)
 
     config_module = f"web.config.{config_name.capitalize()}Config"
     app.config.from_object(config_module)
@@ -86,4 +81,3 @@ def configure_blueprints(app):
     app.register_blueprint(user_controller.blueprint)
     app.register_blueprint(auth_controller.blueprint)
     app.register_blueprint(feedback_controller.blueprint)
-

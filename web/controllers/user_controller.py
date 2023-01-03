@@ -22,7 +22,7 @@ blueprint = Blueprint('user', __name__)
 def user_list(user_repo: UsersRepository):
 
     current_user = get_jwt_identity()
-    print(f"Hello, {current_user}!")
+    # print(f"Hello, {current_user}!")
 
     result = user_list_usecase(user_repo)
 
@@ -42,7 +42,7 @@ def add_user(user_repo: UsersRepository):
         command = AddUserCommand(payload=data)
         response = command.execute(user_repo)
 
-        return Response(response.value, mimetype='application/json', status=201)
+        return Response(None, mimetype='application/json', status=201)
     except ValidationError as e:
         print(e)
         raise HttpException(message=e.messages, status_code=400)

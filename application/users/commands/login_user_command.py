@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import timedelta
 
 from flask_jwt_extended import create_access_token, create_refresh_token
 from injector import inject
@@ -27,8 +28,9 @@ class LoginUserCommand:
                 username=user.username,
                 role=user.role
             )
-            access_token = create_access_token(identity=auth_payload.dict())
-            refresh_token = create_refresh_token(identity=auth_payload.dict())
+            expires_delta = timedelta(days=1)
+            access_token = create_access_token(identity=auth_payload.dict(), expires_delta=expires_delta)
+            refresh_token = create_refresh_token(identity=auth_payload.dict(), expires_delta=expires_delta)
 
             return {
                 "access_token": access_token,
