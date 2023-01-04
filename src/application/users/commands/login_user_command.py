@@ -5,10 +5,10 @@ from flask_jwt_extended import create_access_token, create_refresh_token
 from injector import inject
 from werkzeug.security import check_password_hash
 
-from application.dtos.user_list_dto import UserInListDto
-from data.users.users_repository import UsersRepository
-from domain.exceptions import HttpException, BadRequestException, UnauthorizedException
-from application.dtos.login_credentials_dto import LoginCredentialsDto
+from src.application.dtos.user_list_dto import UserInListDto
+from src.data.users.users_repository import UsersRepository
+from src.domain.exceptions import UnauthorizedException
+from src.application.dtos.login_credentials_dto import LoginCredentialsDto
 
 
 @dataclass

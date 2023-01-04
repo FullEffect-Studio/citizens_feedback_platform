@@ -5,12 +5,12 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from injector import inject
 from marshmallow import ValidationError
 
-from application.dtos.revise_data_dto import ReviseDataDtoSchema
-from application.messages.commands.revise_data_command import ReviseDataCommand
-from application.messages.queries.get_messages_social_worker_query import GetMessagesForSocialWorkerQuery
-from data.messages.messages_repository import MessagesRepository
-from domain.exceptions import UnauthorizedException, BadRequestException
-from domain.user import UserRole
+from src.application.dtos.revise_data_dto import ReviseDataDtoSchema
+from src.application.messages.commands.revise_data_command import ReviseDataCommand
+from src.application.messages.queries.get_messages_social_worker_query import GetMessagesForSocialWorkerQuery
+from src.data.messages.messages_repository import MessagesRepository
+from src.domain.exceptions import UnauthorizedException, BadRequestException
+from src.domain.user import UserRole
 
 blueprint = Blueprint('messages', __name__)
 

@@ -4,14 +4,11 @@ from uuid import uuid4
 
 from injector import inject
 
-from application.dtos.revise_data_dto import ReviseDataDto
-from application.dtos.save_feedback_dto import SaveFeedbackDto
-from application.responses import ResponseSuccess
-from data.messages.messages_repository import MessagesRepository
-from data.statistics.statistics_repository import StatisticsRepository
-from domain.exceptions import HttpException
-from domain.message import Message
-from domain.statistic import Statistic
+from src.application.dtos.revise_data_dto import ReviseDataDto
+from src.application.responses import ResponseSuccess
+from src.data.messages.messages_repository import MessagesRepository
+from src.domain.exceptions import HttpException
+from src.domain.message import Message
 
 
 @dataclass

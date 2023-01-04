@@ -5,11 +5,11 @@ from injector import inject
 from pymongo.errors import DuplicateKeyError
 from werkzeug.security import generate_password_hash
 
-from application.responses import ResponseSuccess
-from data.users.users_repository import UsersRepository
-from domain.exceptions import HttpException
-from domain.user import User
-from application.dtos.add_user_dto import AddUserDto
+from src.application.responses import ResponseSuccess
+from src.data.users.users_repository import UsersRepository
+from src.domain.exceptions import HttpException
+from src.domain.user import User
+from src.application.dtos.add_user_dto import AddUserDto
 
 
 @dataclass

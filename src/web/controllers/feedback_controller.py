@@ -5,13 +5,13 @@ import os
 from flask import Blueprint, Response, request, current_app
 from flask_jwt_extended import get_jwt_identity, jwt_required
 
-from application.dtos.save_feedback_dto import SaveFeedbackDto
-from application.feedbacks.commands.process_feedback_command import ProcessFeedbackCommand
-from application.feedbacks.queries.get_stats_by_social_worker_query import GetStatBySocialWorkerQuery
-from application.feedbacks.queries.get_stats_public_official_query import GetStatsPublicOfficialQuery
-from data.statistics.statistics_repository import StatisticsRepository
-from domain.exceptions import HttpException, UnauthorizedException, BadRequestException
-from domain.user import UserRole
+from src.application.dtos.save_feedback_dto import SaveFeedbackDto
+from src.application.feedbacks.commands.process_feedback_command import ProcessFeedbackCommand
+from src.application.feedbacks.queries.get_stats_by_social_worker_query import GetStatBySocialWorkerQuery
+from src.application.feedbacks.queries.get_stats_public_official_query import GetStatsPublicOfficialQuery
+from src.data.statistics.statistics_repository import StatisticsRepository
+from src.domain.exceptions import HttpException, UnauthorizedException, BadRequestException
+from src.domain.user import UserRole
 
 blueprint = Blueprint('feedback', __name__)
 

@@ -1,7 +1,7 @@
 import pymongo
 from werkzeug.security import generate_password_hash
 
-from domain.user import UserRole
+from src.domain.user import UserRole
 
 USERS = [
     {

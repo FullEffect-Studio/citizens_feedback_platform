@@ -2,10 +2,10 @@ import pymongo
 from flask import Flask
 from injector import Module, inject, singleton
 
-from data.messages.messages_repository import MessagesRepository
-from data.mongo_client import AppMongoClient
-from data.statistics.statistics_repository import StatisticsRepository
-from data.users.users_repository import UsersRepository
+from src.data.messages.messages_repository import MessagesRepository
+from src.data.mongo_client import AppMongoClient
+from src.data.statistics.statistics_repository import StatisticsRepository
+from src.data.users.users_repository import UsersRepository
 
 
 class MongoModule(Module):

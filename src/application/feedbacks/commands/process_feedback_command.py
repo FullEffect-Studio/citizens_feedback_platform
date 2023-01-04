@@ -3,11 +3,11 @@ from uuid import uuid4
 
 from injector import inject
 
-from application.dtos.save_feedback_dto import SaveFeedbackDto
-from application.responses import ResponseSuccess
-from data.statistics.statistics_repository import StatisticsRepository
-from domain.exceptions import HttpException
-from domain.statistic import Statistic
+from src.application.dtos.save_feedback_dto import SaveFeedbackDto
+from src.application.responses import ResponseSuccess
+from src.data.statistics.statistics_repository import StatisticsRepository
+from src.domain.exceptions import HttpException
+from src.domain.statistic import Statistic
 
 
 @dataclass

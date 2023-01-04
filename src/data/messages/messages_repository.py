@@ -1,12 +1,8 @@
-import pprint
-from typing import List
 from injector import inject
 
-from data.messages.messages_data import MessageData
-from data.mongo_base import BaseRepository, AppMongoClient
-from data.statistics.statistics_data import StatisticData
-from domain.message import Message
-from domain.statistic import Statistic
+from src.data.messages.messages_data import MessageData
+from src.data.mongo_base import BaseRepository, AppMongoClient
+from src.domain.message import Message
 
 
 class MessagesRepository(BaseRepository):

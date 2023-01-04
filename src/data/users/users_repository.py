@@ -2,11 +2,11 @@ import pprint
 
 from injector import inject
 
-from application.dtos.user_list_dto import UserInListDto
-from data.mongo_client import AppMongoClient
-from data.users.user_data import UserData
-from domain.user import User
-from data.mongo_base import BaseRepository
+from src.application.dtos.user_list_dto import UserInListDto
+from src.data.mongo_client import AppMongoClient
+from src.data.users.user_data import UserData
+from src.domain.user import User
+from src.data.mongo_base import BaseRepository
 
 
 class UsersRepository(BaseRepository):

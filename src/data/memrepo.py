@@ -1,6 +1,6 @@
 from typing import List
 
-from domain.user import User
+from src.domain.user import User
 
 
 class MemRepo:

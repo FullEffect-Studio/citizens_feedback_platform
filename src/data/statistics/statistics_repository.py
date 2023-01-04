@@ -1,10 +1,9 @@
 import pprint
-from typing import List
 from injector import inject
 
-from data.mongo_base import BaseRepository, AppMongoClient
-from data.statistics.statistics_data import StatisticData
-from domain.statistic import Statistic
+from src.data.mongo_base import BaseRepository, AppMongoClient
+from src.data.statistics.statistics_data import StatisticData
+from src.domain.statistic import Statistic
 
 
 class StatisticsRepository(BaseRepository):

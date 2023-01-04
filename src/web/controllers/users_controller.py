@@ -5,12 +5,12 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from injector import inject
 from marshmallow import ValidationError
 
-from application.users.commands.add_user_command import AddUserCommand
-from application.users.queries.get_all_users_query import GetAllUsersQuery
-from data.users.users_repository import UsersRepository
-from domain.exceptions import  UnauthorizedException, BadRequestException
-from application.dtos.add_user_dto import AddUserDtoSchema
-from domain.user import UserRole
+from src.application.users.commands.add_user_command import AddUserCommand
+from src.application.users.queries.get_all_users_query import GetAllUsersQuery
+from src.data.users.users_repository import UsersRepository
+from src.domain.exceptions import  UnauthorizedException, BadRequestException
+from src.application.dtos.add_user_dto import AddUserDtoSchema
+from src.domain.user import UserRole
 
 blueprint = Blueprint('user', __name__)
 

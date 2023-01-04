@@ -1,14 +1,13 @@
 import json
 
 from flask import Blueprint, Response, request
-from flask_cors import cross_origin, CORS
 from flask_jwt_extended import get_jwt_identity, create_access_token
 from marshmallow import ValidationError
 
-from application.dtos.login_credentials_dto import LoginCredentialsDtoSchema
-from application.users.commands.login_user_command import LoginUserCommand
-from data.users.users_repository import UsersRepository
-from domain.exceptions import HttpException, BadRequestException
+from src.application.dtos.login_credentials_dto import LoginCredentialsDtoSchema
+from src.application.users.commands.login_user_command import LoginUserCommand
+from src.data.users.users_repository import UsersRepository
+from src.domain.exceptions import BadRequestException
 
 blueprint = Blueprint('auth', __name__)
 

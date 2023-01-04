@@ -1,6 +1,6 @@
 import os
 
-from web.app import create_app
+from src.web.app import create_app
 
 try:
     env = os.environ['FLASK_CONFIG']

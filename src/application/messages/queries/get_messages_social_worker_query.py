@@ -2,9 +2,9 @@ from dataclasses import dataclass
 
 from injector import inject
 
-from application.responses import ResponseSuccess
-from data.messages.messages_repository import MessagesRepository
-from domain.exceptions import HttpException
+from src.application.responses import ResponseSuccess
+from src.data.messages.messages_repository import MessagesRepository
+from src.domain.exceptions import HttpException
 
 
 @dataclass

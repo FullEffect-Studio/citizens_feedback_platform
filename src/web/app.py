@@ -1,16 +1,14 @@
-import pymongo
 from flask import Flask, make_response, jsonify
 from flask_cors import CORS
 from flask_injector import FlaskInjector
 from flask_jwt_extended import JWTManager
-from injector import Module, singleton, inject, Binder
 from marshmallow import ValidationError
 from mongoengine import connect
 
-from domain.exceptions import HttpException, UnauthorizedException, BadRequestException
-from web.database.db_seeder import db_seeder
-from web.controllers import users_controller, auth_controller, feedback_controller, messages_controller
-from web.database.mongo_module import MongoModule
+from src.domain.exceptions import HttpException, UnauthorizedException, BadRequestException
+from src.web.database.db_seeder import db_seeder
+from src.web.controllers import users_controller, auth_controller, feedback_controller, messages_controller
+from src.web.database.mongo_module import MongoModule
 
 
 def create_app(config_name):

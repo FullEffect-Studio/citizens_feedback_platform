@@ -1,6 +1,6 @@
 from injector import inject
 
-from data.mongo_client import AppMongoClient
+from src.data.mongo_client import AppMongoClient
 
 
 class BaseRepository:
