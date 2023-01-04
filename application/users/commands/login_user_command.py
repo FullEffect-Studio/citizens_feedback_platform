@@ -7,7 +7,7 @@ from werkzeug.security import check_password_hash
 
 from application.dtos.user_list_dto import UserInListDto
 from data.users.users_repository import UsersRepository
-from domain.exceptions import HttpException
+from domain.exceptions import HttpException, BadRequestException, UnauthorizedException
 from application.dtos.login_credentials_dto import LoginCredentialsDto
 
 
@@ -20,7 +20,7 @@ class LoginUserCommand:
 
         user = user_repo.find_by_username(self.payload.username)
         if not user:
-            raise HttpException(message='Invalid credentials', status_code=401)
+            raise UnauthorizedException(message='Invalid credentials')
 
         if check_password_hash(user.password, self.payload.password):
             auth_payload = UserInListDto(
@@ -34,7 +34,9 @@ class LoginUserCommand:
 
             return {
                 "access_token": access_token,
-                "refresh_token": refresh_token
+                "refresh_token": refresh_token,
+                "username": user.username,
+                'role': user.role
             }
         else:
-            raise HttpException(message="Invalid password", status_code=401)
+            raise UnauthorizedException(message="Invalid password")

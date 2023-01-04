@@ -1,15 +1,18 @@
 import json
 
 from flask import Blueprint, Response, request
+from flask_cors import cross_origin, CORS
 from flask_jwt_extended import get_jwt_identity, create_access_token
 from marshmallow import ValidationError
 
 from application.dtos.login_credentials_dto import LoginCredentialsDtoSchema
 from application.users.commands.login_user_command import LoginUserCommand
 from data.users.users_repository import UsersRepository
-from domain.exceptions import HttpException
+from domain.exceptions import HttpException, BadRequestException
 
 blueprint = Blueprint('auth', __name__)
+
+# CORS(blueprint)
 
 
 @blueprint.route("/auth/login", methods=["POST"])
@@ -24,7 +27,7 @@ def login(user_repo: UsersRepository):
         return Response(json.dumps(response), mimetype='application/json', status=201)
     except ValidationError as e:
         print(e.messages)
-        raise HttpException(message=e.messages, status_code=400)
+        raise BadRequestException(message=e.messages)
 
 
 @blueprint.route("/auth/refresh", methods=["POST"])

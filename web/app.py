@@ -32,6 +32,7 @@ def create_app(config_name):
 
     jwt = JWTManager(app)
     CORS(app)
+    # cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
     @app.errorhandler(Exception)
     def handle_error(error):

@@ -15,8 +15,9 @@ class HttpException(Exception):
 
 class UnauthorizedException(Exception):
     def __init__(self, message='Unauthorized access'):
+        Exception.__init__(self)
         self.message = message
-        self.status_code = 401
+        self.status_code = 403
 
     def to_dict(self):
         rv = dict(())
@@ -26,6 +27,7 @@ class UnauthorizedException(Exception):
 
 class BadRequestException(Exception):
     def __init__(self, message):
+        Exception.__init__(self)
         self.message = message
         self.status_code = 400
 
