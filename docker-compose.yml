@@ -1,0 +1,41 @@
+networks:
+  frontend:
+  backend:
+
+secrets:
+  mongo_url:
+    file: mongo_url.txt
+
+services:
+  backend:
+    build: backend
+    ports:
+      - "5000:5000"
+    secrets:
+      - mongo_url
+    networks: 
+      - frontend
+      - backend
+    volumes:
+      - "./config:/config"
+      - "./backend/cfp:/app/cfp"
+  web:
+    build: nginx
+    networks: 
+      - frontend
+    ports:
+      - "80:80"
+  db:
+    image: mongo
+    networks: 
+      - backend
+    environment:
+      - MONGO_URL_FILE=/run/secrets/mongo_url
+    volumes:
+      - "mongodata:/data/db"
+    secrets:
+      - mongo_url
+
+volumes:
+  mongodata:
+
