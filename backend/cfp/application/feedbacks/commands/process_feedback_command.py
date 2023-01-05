@@ -1,4 +1,6 @@
+import logging
 from dataclasses import dataclass
+
 from uuid import uuid4
 
 from injector import inject
@@ -14,6 +16,8 @@ from cfp.domain.statistic import Statistic
 class ProcessFeedbackCommand:
     payload: SaveFeedbackDto
     current_user_id: str
+
+    logger = logging.getLogger(__name__)
 
     @inject
     def execute(self, stats_repo: StatisticsRepository):
@@ -39,7 +43,9 @@ class ProcessFeedbackCommand:
 
         try:
             if user_stat is None:
-                print('adding new')
+                logging.warning(f'No stats has been recorded for {self.payload.community_name}')
+                logging.info(f'Adding new Statistic for {self.payload.community_name}')
+
                 model = Statistic(
                     id=uuid4(),
                     community_name=str(self.payload.community_name).strip(),
@@ -51,12 +57,13 @@ class ProcessFeedbackCommand:
                 )
                 stats_repo.add_stats(model)
             else:
-                print('updating exisitng')
                 user_stat.family += family
                 user_stat.health += health
                 user_stat.unknown += unknown
                 user_stat.community_size = self.payload.community_size
                 stats_repo.update_stats(user_stat)
+
+                logging.info(f'Update stats for "{self.payload.community_name}" community', user_stat.to_dict())
 
             return ResponseSuccess()
         except Exception as e:
