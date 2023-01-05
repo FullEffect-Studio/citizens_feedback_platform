@@ -2,84 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4256924-49c4-440f-be6e-a0e6c30f0cab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/master_apis-cfp.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/citizen_feedback_platform.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/citizen_feedback_platform.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/dev.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/prod.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/command_bus.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/dtos/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/dtos/add_user_dto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/dtos/login_credentials_dto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/dtos/revise_data_dto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/dtos/save_feedback_dto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/dtos/user_list_dto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/feedbacks/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/feedbacks/commands/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/feedbacks/commands/process_feedback_command.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/feedbacks/queries/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/feedbacks/queries/get_all_stats_query.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/feedbacks/queries/get_stats_by_social_worker_query.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/feedbacks/queries/get_stats_public_official_query.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/messages/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/messages/commands/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/messages/commands/revise_data_command.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/messages/queries/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/messages/queries/get_messages_social_worker_query.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/responses.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/users/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/users/commands/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/users/commands/add_user_command.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/users/commands/login_user_command.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/users/queries/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/users/queries/get_all_users_query.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/memrepo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/messages/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/messages/messages_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/messages/messages_repository.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/mongo_base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/mongo_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/statistics/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/statistics/statistics_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/statistics/statistics_repository.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/users/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/users/user_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/users/users_repository.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/message.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/statistic.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/domain/user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/app.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/controllers/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/controllers/auth_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/controllers/feedback_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/controllers/messages_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/controllers/users_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/database/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/database/db_seeder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/web/database/mongo_module.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/domain/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/domain/test_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/repository/test_memrepo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/rest/test_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_responses.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/usecases/test_users_list.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/cfp/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cfp/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +33,29 @@
     &quot;last_opened_file_path&quot;: &quot;C:/projects/citizen_feedback_platform/backend/cfp&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flask server.Flask (..)">
+    <configuration name="wsgi" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="citizen_feedback_platform" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend/cfp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/cfp/wsgi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Flask (..)" type="Python.FlaskServer" nameIsGenerated="true">
       <option name="flaskDebug" value="true" />
       <module name="citizen_feedback_platform" />
@@ -125,6 +72,11 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.wsgi" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -135,6 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672861474198</updated>
       <workItem from="1672861476340" duration="255000" />
+      <workItem from="1672895687024" duration="3576000" />
     </task>
     <servers />
   </component>
@@ -142,6 +95,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/citizen_feedback_platform$Flask_____.coverage" NAME="Flask (..) Coverage Results" MODIFIED="1672861595765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/cfp" />
+    <SUITE FILE_PATH="coverage/citizen_feedback_platform$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1672907004061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/cfp" />
+    <SUITE FILE_PATH="coverage/citizen_feedback_platform$Flask_____.coverage" NAME="Flask (..) Coverage Results" MODIFIED="1672907011411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/cfp" />
   </component>
 </project>
