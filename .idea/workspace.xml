@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4256924-49c4-440f-be6e-a0e6c30f0cab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/cfp/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cfp/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backend/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="c4256924-49c4-440f-be6e-a0e6c30f0cab" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1672861474198</updated>
       <workItem from="1672861476340" duration="255000" />
-      <workItem from="1672895687024" duration="3576000" />
+      <workItem from="1672895687024" duration="3705000" />
     </task>
     <servers />
   </component>
